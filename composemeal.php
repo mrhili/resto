@@ -108,6 +108,8 @@ if($_SERVER["REQUEST_METHOD"] != "POST") {
 
                 //GO SEE THE ORDERING
 
+                $route::go('showorder', $route::parameterizer( ['i' => $order_id])  );
+
 
 
             }

@@ -44,7 +44,7 @@ if($_SERVER["REQUEST_METHOD"] != "POST") {
 
             try {
                 
-                $stmt = $connect->prepare('SELECT id, email, name, pass FROM users WHERE email = :email');
+                $stmt = $conn->prepare('SELECT id, email, name, pass FROM users WHERE email = :email');
                 $stmt->execute(array(
                     ':email' => $email
                     ));

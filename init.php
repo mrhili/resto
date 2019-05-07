@@ -13,6 +13,7 @@ if(!isset( $_SESSION['initialized'] )){
     include_once( "app/tools.php");
     include_once( "app/math.php");
     include_once( "app/money.php");
+    include_once( "app/route.php");
 
     /////////////DB
 
@@ -31,6 +32,12 @@ include_once( "db/init.php");
 $conn = $init_db::init();
 
 include_once( "db/quickquery.php");
+
+
+///MODELS
+include_once( "db/models/ordering.php");
+
+////
 
 
 
