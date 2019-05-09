@@ -7,13 +7,18 @@ if(!isset( $_SESSION['initialized'] )){
     //echo $_SESSION['variables']['site_name'];
 
     include_once( "app/init.php");
-    include_once( "app/conf.php");
-    include_once( "app/alert.php");
-    include_once( "app/utilities.php");
+        include_once( "app/conf.php");
+ 
+//FAMILY
     include_once( "app/tools.php");
-    include_once( "app/math.php");
-    include_once( "app/money.php");
-    include_once( "app/route.php");
+        
+        include_once( "app/utilities.php");
+            include_once( "security/security.php");
+            include_once( "app/alert.php");
+            include_once( "app/math.php");
+            include_once( "app/money.php");
+            include_once( "app/route.php");
+//ENDFAMILY
 
     /////////////DB
 
@@ -27,15 +32,16 @@ if(!isset( $_SESSION['initialized'] )){
 
 }
 
-include_once( "db/init.php");
+                //child of alert
+                include_once( "db/init.php");
 
-$conn = $init_db::init();
+                $conn = $init_db::init();
 
-include_once( "db/quickquery.php");
+                    include_once( "db/quickquery.php");
 
 
 ///MODELS
-include_once( "db/models/ordering.php");
+        include_once( "db/models/ordering.php");
 
 ////
 

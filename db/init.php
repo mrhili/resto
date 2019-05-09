@@ -1,7 +1,7 @@
 <?php
 
 
-class InitDB{
+class InitDB extends Alert{
 
 
     public static function init(){
@@ -23,7 +23,7 @@ class InitDB{
         
         }catch(PDOException $e) {
         
-                echo $alert::write( $e->getMessage() );
+                echo self::write( $e->getMessage() );
         
                 
         

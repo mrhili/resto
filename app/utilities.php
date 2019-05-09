@@ -1,7 +1,7 @@
 <?php
 
 
-class Utilities{
+class Utilities extends Tools{
 
 
 

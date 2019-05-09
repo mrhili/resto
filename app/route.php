@@ -1,7 +1,7 @@
 <?php
 
 
-class Route{
+class Route extends Utilities{
 
     public static function parameterizer(Array $params){
 

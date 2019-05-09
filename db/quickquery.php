@@ -37,7 +37,7 @@ class QuickQuery extends InitDB{
     }
 
 
-    public static function rows($table , $columns , $rows ='*' ){
+    public static function rows($table , $columns='' , $rows ='*' ){
 
         
 
@@ -53,9 +53,11 @@ class QuickQuery extends InitDB{
             $rows = implode( ", ", $rows );
         }
 
-        $sql = "SELECT ".$rows." FROM ".$table." WHERE ";
+        $sql = "SELECT ".$rows." FROM ".$table;
 
         if( is_array( $columns ) ){
+
+            //self::debug( $columns );
             
            
             foreach($columns as $key => $column ){
@@ -73,13 +75,12 @@ class QuickQuery extends InitDB{
     
             }
 
-            $sql .= $string;
+            $sql .= ' WHERE '.$string;
 
-            echo $sql;
             
-        }else{
+        }elseif( $columns != '' && !is_array( $columns)  ){
 
-            $sql .= $columns;
+            $sql .= ' WHERE '.$columns;
 
         }
 
@@ -91,13 +92,30 @@ class QuickQuery extends InitDB{
 
         $query = $conn->prepare($sql);
 
+        //self::debug($string);
+        //self::debug($sql);
+
         
 
         $counter = null;$string = null;
 
-        $query->execute($columns);
+        if( is_array( $columns ) ){
 
-        return $query->fetch(PDO::FETCH_OBJ);
+            
+
+            //self::debug($columns);
+
+            $query->execute($columns);
+
+        }else{
+
+            $query->execute(  );
+
+        }
+
+        
+
+        return $query->fetchAll(PDO::FETCH_OBJ);
 
         }catch(PDOException $e){
 

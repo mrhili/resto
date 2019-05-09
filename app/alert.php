@@ -1,7 +1,7 @@
 <?php
 
 
-class Alert{
+class Alert extends Utilities{
 
 
 

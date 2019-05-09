@@ -44,7 +44,7 @@ if($_SERVER["REQUEST_METHOD"] != "POST") {
 
             try {
                 
-                $stmt = $conn->prepare('SELECT id, email, name, pass FROM users WHERE email = :email');
+                $stmt = $conn->prepare('SELECT * FROM users WHERE email = :email');
                 $stmt->execute(array(
                     ':email' => $email
                     ));
@@ -67,13 +67,17 @@ if($_SERVER["REQUEST_METHOD"] != "POST") {
                         $_SESSION['logged'] = True;
 
                         if($_SESSION['role'] == 1 ){
+
                             
                             header('Location: dashboard.php');
                             exit;
                         }elseif($_SESSION['role'] == 0 ){
-                            header('Location: meal.php');
+
+                            header('Location: mymeals.php');
                             exit;
                         }
+
+
                         session_destroy();
                         header('Location: index.php');
                             
@@ -113,6 +117,6 @@ if($_SERVER["REQUEST_METHOD"] != "POST") {
 
 }
 
-
+echo $errMsg;
 $alert::write( $errMsg );
 

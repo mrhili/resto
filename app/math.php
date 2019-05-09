@@ -1,6 +1,6 @@
 <?php
 
-class Math{
+class Math extends Utilities{
 
     public static function pourcentage($nombre,$pourcentage)
 	{ 
