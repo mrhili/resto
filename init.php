@@ -6,7 +6,7 @@ if(!isset( $_SESSION['initialized'] )){
 
     //echo $_SESSION['variables']['site_name'];
 
-    include_once( "app/init.php");
+    include_once( "app/app.php");
         include_once( "app/conf.php");
  
 //FAMILY
